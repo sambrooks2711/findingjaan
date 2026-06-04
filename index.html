@@ -3,261 +3,225 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Finding Jaan · The Lost Note</title>
-  <meta name="description" content="A handwritten note was found at Pudding Mill Lane station on 26th April 2026. It mentions someone named Jaan. The signature is unclear. Can you help?" />
-  <meta name="author" content="Sam Brooks & Ellie Pearce">
+  <title>Finding Jaan · help return a lost note</title>
+  <meta name="description" content="A handwritten note was found at Pudding Mill Lane station. Help us find Jaan — to give back the note and understand the story.">
   <style>
+    /* reset & base — clean, mobile-first */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    /* EXACT COLOR: #F08195 background, everything black */
     body {
-      background-color: #F08195;
+      background: #F08195;
       color: #000000;
-      font-family: 'Courier New', 'Courier', 'Times New Roman', monospace;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
       line-height: 1.5;
-    }
-
-    a {
-      color: #000000;
-      text-decoration: underline;
-      text-decoration-thickness: 1px;
-    }
-
-    a:visited {
-      color: #000000;
-    }
-
-    button, .btn {
-      background: transparent;
-      border: 2px solid #000000;
-      color: #000000;
-      font-family: inherit;
-      font-weight: 600;
-      padding: 0.6rem 1.4rem;
-      border-radius: 0px;
-      cursor: pointer;
-      font-size: 0.9rem;
-      transition: none;
-    }
-
-    button:hover, .btn:hover {
-      background: rgba(0,0,0,0.08);
+      padding: 1.2rem;
     }
 
     .container {
-      max-width: 900px;
+      max-width: 620px;
       margin: 0 auto;
-      padding: 2rem 1.5rem 3rem;
     }
 
-    .note-block {
+    /* cards / sections */
+    .card {
       background: #F08195;
-      border: 2px solid #000000;
+      border: 2px solid #000;
       padding: 1.5rem;
-      margin: 1.5rem 0;
+      margin-bottom: 1.5rem;
     }
 
-    .handwriting {
-      font-family: 'Caveat', 'Bradley Hand', 'Brush Script MT', cursive;
-      font-size: 1.4rem;
-      line-height: 1.45;
+    /* typography */
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
     }
 
-    .letter-text {
-      font-family: 'Caveat', 'Bradley Hand', cursive;
-      font-size: 1.45rem;
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: #000;
+    }
+
+    /* note text styling */
+    .note-paper {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-size: 1rem;
       line-height: 1.5;
+      border-left: 3px solid #000;
+      padding-left: 1rem;
+      margin: 1rem 0;
       white-space: pre-line;
-      border-left: 3px solid #000000;
-      padding-left: 1.2rem;
-      margin: 1.2rem 0;
     }
 
-    .badge {
-      border: 1px solid #000000;
+    /* signature ambiguity */
+    .ambiguous {
+      background: rgba(0,0,0,0.05);
+      padding: 0.5rem;
+      font-size: 0.8rem;
+      margin-top: 0.8rem;
+      border-left: 2px solid #000;
+    }
+
+    /* buttons / links */
+    .btn {
       display: inline-block;
-      padding: 0.2rem 0.8rem;
-      font-size: 0.7rem;
-      font-family: monospace;
-      letter-spacing: 0.3px;
+      background: transparent;
+      border: 2px solid #000;
+      color: #000;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.1s linear;
+      margin: 0.25rem 0;
     }
 
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.8rem;
-      margin: 2rem 0;
-    }
-
-    @media (max-width: 700px) {
-      .grid-2 {
-        grid-template-columns: 1fr;
-        gap: 1.2rem;
-      }
-      .letter-text {
-        font-size: 1.2rem;
-      }
-      .container {
-        padding: 1.2rem;
-      }
+    .btn:hover {
+      background: rgba(0,0,0,0.08);
     }
 
     .contact-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-      margin: 1.8rem 0 1rem;
+      gap: 0.8rem;
+      margin: 1.2rem 0 0.5rem;
     }
 
-    footer {
-      text-align: center;
-      border-top: 1px solid #000000;
-      margin-top: 3rem;
-      padding-top: 1.8rem;
-      font-size: 0.75rem;
+    hr {
+      border: none;
+      border-top: 1px solid #000;
+      margin: 1rem 0;
     }
 
-    .plain-list {
+    /* simple list */
+    .simple-list {
       list-style: none;
-      padding-left: 0;
+      padding: 0;
     }
-    .plain-list li {
-      margin-bottom: 0.6rem;
+    .simple-list li {
+      margin-bottom: 0.5rem;
       padding-left: 1rem;
       position: relative;
     }
-    .plain-list li::before {
-      content: "—";
+    .simple-list li::before {
+      content: "•";
       position: absolute;
       left: 0;
     }
 
-    .signature-uncertain {
-      background: rgba(0,0,0,0.05);
-      border-left: 3px solid #000000;
-      padding: 0.5rem 0.8rem;
-      margin-top: 0.8rem;
-      font-size: 0.8rem;
+    footer {
+      text-align: center;
+      font-size: 0.7rem;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #000;
     }
 
-    ::selection {
-      background: #000000;
-      color: #F08195;
+    /* mobile first - everything already fluid */
+    @media (max-width: 480px) {
+      body {
+        padding: 0.8rem;
+      }
+      .card {
+        padding: 1.2rem;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+      .note-paper {
+        font-size: 0.9rem;
+      }
     }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-
 <div class="container">
-  
-  <!-- header section: pure facts -->
-  <div style="text-align: center; margin-bottom: 2rem;">
-    <div style="margin-bottom: 0.8rem;">
-      <span class="badge">📍 pudding mill lane station · found 26th april 2026 · 11am</span>
-    </div>
-    <h1 style="font-size: 2.8rem; font-weight: 700; letter-spacing: -1px; border-bottom: 2px solid #000000; display: inline-block; padding-bottom: 0.2rem;">finding jaan</h1>
-    <p style="margin-top: 1rem; max-width: 550px; margin-left: auto; margin-right: auto;">A handwritten note, folded into perfect squares, kept in a pocket for a long time. Dated October 2025. Found by Sam.</p>
+
+  <!-- main header: clear mission -->
+  <div class="card" style="text-align: center;">
+    <h1>finding jaan</h1>
+    <p class="subhead" style="font-weight: 500;">a lost note · a story we want to return</p>
+    <p>We found a handwritten note at Pudding Mill Lane station. It's folded into small squares, kept in a pocket for a long time. We want to find <strong>Jaan</strong> — to give back the note and listen to the story behind it.</p>
   </div>
 
-  <!-- EXACT NOTE: verbatim transcription, no interpretation -->
-  <div class="note-block">
-    <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
-      <span class="badge">✧ pink paper · torn edge ✧</span>
-      <span class="badge">folded into small squares</span>
-    </div>
-    
-    <div class="letter-text">
-      My Love,<br><br>
-      Don't go!! We are going to miss you! It never get's easy :(<br>
-      Just want you to know that we LOVE you with all our heart and soul babey!<br>
-      Thank you for loving us the way you do and for taking care of us!<br>
-      No matter what, we appreciate you! If our words fail to show that,<br>
-      know that our hearts feel that! Wishing you a safe journey babey jaan!<br><br>
-      Love Luek and I xxx<br><br>
-      P.s. Chicken banana, chicken banana!<br>
+  <!-- the note (exactly as written, no analysis) -->
+  <div class="card">
+    <h2>✧ the note</h2>
+    <div class="note-paper">
+      My Love,
+
+      Don't go!! We are going to miss you! It never get's easy :(
+      Just want you to know that we LOVE you with all our heart and soul babey!
+      Thank you for loving us the way you do and for taking care of us!
+      No matter what, we appreciate you! If our words fail to show that,
+      know that our hearts feel that! Wishing you a safe journey babey jaan!
+
+      Love Luek and I xxx
+
+      P.s. Chicken banana, chicken banana!
       lol
     </div>
-    
-    <!-- UNCERTAINTY NOTE: signature ambiguity -->
-    <div class="signature-uncertain">
-      ⚠️ The signature is unclear — what we read as "Luek" might be <strong>Luck, Lueh, Luch</strong>, or other variations of the last two letters. The handwriting is ambiguous.
+    <div class="ambiguous">
+      ⚠️ The signature is unclear — what looks like "Luek" could be Luck, Lueh, Luch, or another variation. The handwriting is ambiguous.
     </div>
-    
-    <div style="margin-top: 1rem; font-family: monospace; font-size: 0.75rem; border-top: 1px solid #000; padding-top: 0.8rem;">
-      <span>✍️ refers to someone named <strong>Jaan</strong> · signed "[unclear name] and I"</span>
-    </div>
-  </div>
-
-  <!-- only physical & location details – no psychological reading -->
-  <div class="grid-2">
-    <div class="note-block" style="margin:0">
-      <h2 style="font-size: 1.3rem; font-weight: bold; margin-bottom: 0.8rem;">✧ the object</h2>
-      <ul class="plain-list">
-        <li>Found at Pudding Mill Lane station (London)</li>
-        <li>26th April 2026, around 11am</li>
-        <li>Folded into perfect little squares</li>
-        <li>Seems to have been kept in a pocket for a long time</li>
-        <li>Written on pink paper, torn edge</li>
-        <li>Dated October 2025</li>
-      </ul>
-    </div>
-
-    <div class="note-block" style="margin:0">
-      <h2 style="font-size: 1.3rem; font-weight: bold; margin-bottom: 0.8rem;">✧ location context</h2>
-      <ul class="plain-list">
-        <li>Pudding Mill Lane serves Queen Elizabeth Olympic Park</li>
-        <li>Near ABBA Voyage arena (ABBA Arena)</li>
-        <li>Likely dropped by someone attending the concert experience</li>
-        <li>Note itself <strong>does not mention ABBA</strong> — only found nearby</li>
-        <li>Carrier may have travelled from Scandinavia (Sweden / nearby)</li>
-      </ul>
+    <hr>
+    <div style="font-size: 0.85rem;">
+      <span>📅 dated october 2025 · found 26th april 2026 · 11am</span><br>
+      <span>📍 pudding mill lane station (near ABBA Voyage arena, London)</span><br>
+      <span>🌸 pink paper · torn edge · folded into perfect squares</span>
     </div>
   </div>
 
-  <!-- open questions (no interpretation, just unknowns) -->
-  <div class="note-block">
-    <h2 style="font-size: 1.3rem; font-weight: bold; margin-bottom: 1rem;">🕯️ we don't know — can you help?</h2>
-    <div class="grid-2" style="margin: 0; gap: 1rem;">
-      <div>
-        <ul class="plain-list">
-          <li>Who is Jaan?</li>
-          <li>Who wrote the note? (signature unclear: Luek / Luck / Lueh / Luch?)</li>
-          <li>Why was it never sent — or was it lost?</li>
-          <li>Why was it carried to London / near the Olympic Park?</li>
-        </ul>
-      </div>
-      <div>
-        <ul class="plain-list">
-          <li>What does "chicken banana" refer to?</li>
-          <li>What happened to Jaan after October 2025?</li>
-          <li>If you recognise the handwriting, the phrases, or the story — reach out.</li>
-        </ul>
-      </div>
-    </div>
+  <!-- what we know (simple facts, not interpretations) -->
+  <div class="card">
+    <h2>📋 what we know</h2>
+    <ul class="simple-list">
+      <li>The note is addressed to someone named <strong>Jaan</strong>.</li>
+      <li>It was carried to London, likely by someone attending ABBA Voyage.</li>
+      <li>Written in English — the writer may be from Sweden / Scandinavia.</li>
+      <li>The signature might be "Luek", "Luck", "Lueh", "Luch" or similar.</li>
+      <li>The paper was folded small and kept in a pocket for months.</li>
+    </ul>
+    <p style="margin-top: 0.8rem;">That's all. We don't know the story. We don't want to guess.</p>
   </div>
 
-  <!-- CALL TO ACTION: only contact -->
-  <div class="note-block" style="text-align: center; margin-top: 2rem;">
-    <h2 style="font-size: 1.5rem; margin-bottom: 0.8rem;">📬 do you know something?</h2>
-    <p style="max-width: 550px; margin-left: auto; margin-right: auto; margin-bottom: 1.2rem;">If you recognise the note, the name Jaan, the handwriting, or anything about this story — please get in touch with Sam or Ellie. Every clue helps.</p>
-    
+  <!-- why we're doing this -->
+  <div class="card">
+    <h2>🎯 our goal</h2>
+    <p><strong>We just want to give the note back to Jaan — or to the person who wrote it.</strong> We want to understand what happened. No judgement, no assumptions. Just the real story.</p>
+    <p style="margin-top: 0.5rem;">If you are Jaan, or if you recognise the note, the handwriting, the name, or anything at all — please reach out.</p>
+  </div>
+
+  <!-- contact section: simple, direct -->
+  <div class="card" style="text-align: center;">
+    <h2>📬 contact sam or ellie</h2>
+    <p>We'd love to hear from you. Even a small clue helps.</p>
     <div class="contact-row">
-      <a href="mailto:sam.brooks2@uos.ac.uk?subject=Finding%20Jaan%20-%20I%20have%20information&body=Dear%20Sam%2C%0A%0AI%20have%20information%20about%20the%20note%20or%20Jaan.%20Here's%20what%20I%20know%3A%0A%0A" class="btn">✉️ Email Sam</a>
-      <a href="mailto:e.pearce5@uos.ac.uk?subject=Finding%20Jaan%20-%20I%20have%20information&body=Dear%20Ellie%2C%0A%0AI%20have%20information%20about%20the%20note%20or%20Jaan.%20Here's%20what%20I%20know%3A%0A%0A" class="btn">✉️ Email Ellie</a>
+      <a href="mailto:sam.brooks2@uos.ac.uk?subject=Finding%20Jaan%20-%20I%20have%20information&body=Hi%20Sam%2C%0A%0AI%20have%20some%20information%20about%20the%20note%20or%20Jaan.%0A%0A" class="btn">✉️ email sam</a>
+      <a href="mailto:e.pearce5@uos.ac.uk?subject=Finding%20Jaan%20-%20I%20have%20information&body=Hi%20Ellie%2C%0A%0AI%20have%20some%20information%20about%20the%20note%20or%20Jaan.%0A%0A" class="btn">✉️ email ellie</a>
     </div>
-    <p style="margin-top: 1rem; font-size: 0.75rem;">or both: <a href="mailto:sam.brooks2@uos.ac.uk,e.pearce5@uos.ac.uk?subject=Finding%20Jaan%20-%20information">sam.brooks2@uos.ac.uk</a> & <a href="mailto:e.pearce5@uos.ac.uk">e.pearce5@uos.ac.uk</a></p>
+    <p style="font-size: 0.75rem; margin-top: 0.8rem;">sam.brooks2@uos.ac.uk · e.pearce5@uos.ac.uk</p>
   </div>
 
-  <!-- FOOTER -->
+  <!-- simple footer -->
   <footer>
-    <p>finding jaan · sam brooks & ellie pearce · april 2026 · pudding mill lane</p>
-    <p style="margin-top: 0.3rem;">the note is presented as found — no interpretations, only questions.</p>
+    <p>finding jaan · sam & ellie · april 2026 · pudding mill lane</p>
+    <p style="margin-top: 0.2rem;">no interpretations — just a lost note and a search for its story.</p>
   </footer>
 </div>
 </body>
