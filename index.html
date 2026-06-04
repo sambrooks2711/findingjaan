@@ -6,7 +6,6 @@
   <title>Finding Jaan · help return a lost note</title>
   <meta name="description" content="A handwritten note was found at Pudding Mill Lane station. Help us find Jaan — to give back the note and understand the story.">
   <style>
-    /* reset & base — clean, mobile-first */
     * {
       margin: 0;
       padding: 0;
@@ -26,7 +25,6 @@
       margin: 0 auto;
     }
 
-    /* cards / sections */
     .card {
       background: #F08195;
       border: 2px solid #000;
@@ -34,7 +32,6 @@
       margin-bottom: 1.5rem;
     }
 
-    /* typography */
     h1 {
       font-size: 2.2rem;
       font-weight: 700;
@@ -52,10 +49,8 @@
     .subhead {
       font-size: 1rem;
       margin-bottom: 1rem;
-      color: #000;
     }
 
-    /* note text styling */
     .note-paper {
       font-family: 'Georgia', 'Times New Roman', serif;
       font-size: 1rem;
@@ -66,7 +61,6 @@
       white-space: pre-line;
     }
 
-    /* signature ambiguity */
     .ambiguous {
       background: rgba(0,0,0,0.05);
       padding: 0.5rem;
@@ -75,7 +69,6 @@
       border-left: 2px solid #000;
     }
 
-    /* buttons / links */
     .btn {
       display: inline-block;
       background: transparent;
@@ -88,7 +81,6 @@
       text-align: center;
       cursor: pointer;
       transition: 0.1s linear;
-      margin: 0.25rem 0;
     }
 
     .btn:hover {
@@ -100,6 +92,7 @@
       flex-wrap: wrap;
       gap: 0.8rem;
       margin: 1.2rem 0 0.5rem;
+      justify-content: center;
     }
 
     hr {
@@ -108,7 +101,6 @@
       margin: 1rem 0;
     }
 
-    /* simple list */
     .simple-list {
       list-style: none;
       padding: 0;
@@ -132,7 +124,6 @@
       border-top: 1px solid #000;
     }
 
-    /* mobile first - everything already fluid */
     @media (max-width: 480px) {
       body {
         padding: 0.8rem;
@@ -159,7 +150,7 @@
     <p>We found a handwritten note at Pudding Mill Lane station. It's folded into small squares, kept in a pocket for a long time. We want to find <strong>Jaan</strong> — to give back the note and listen to the story behind it.</p>
   </div>
 
-  <!-- the note (exactly as written, no analysis) -->
+  <!-- the note (exactly as written) -->
   <div class="card">
     <h2>✧ the note</h2>
     <div class="note-paper">
@@ -177,7 +168,7 @@
       lol
     </div>
     <div class="ambiguous">
-      ⚠️ The signature is unclear — what looks like "Luek" could be Luck, Lueh, Luch, or another variation. The handwriting is ambiguous.
+      ⚠️ The signature is unclear — "Luek" could be Luck, Lueh, Luch, or another variation. The note is from <strong>two people</strong>: Luek (or similar) and the writer ("I").
     </div>
     <hr>
     <div style="font-size: 0.85rem;">
@@ -187,27 +178,27 @@
     </div>
   </div>
 
-  <!-- what we know (simple facts, not interpretations) -->
+  <!-- what we know (simple facts) -->
   <div class="card">
     <h2>📋 what we know</h2>
     <ul class="simple-list">
       <li>The note is addressed to someone named <strong>Jaan</strong>.</li>
       <li>It was carried to London, likely by someone attending ABBA Voyage.</li>
       <li>Written in English — the writer may be from Sweden / Scandinavia.</li>
-      <li>The signature might be "Luek", "Luck", "Lueh", "Luch" or similar.</li>
+      <li>The note is from <strong>two people</strong>: Luek (or Luck/Lueh/Luch) + the writer.</li>
       <li>The paper was folded small and kept in a pocket for months.</li>
     </ul>
     <p style="margin-top: 0.8rem;">That's all. We don't know the story. We don't want to guess.</p>
   </div>
 
-  <!-- why we're doing this -->
+  <!-- our goal -->
   <div class="card">
     <h2>🎯 our goal</h2>
-    <p><strong>We just want to give the note back to Jaan — or to the person who wrote it.</strong> We want to understand what happened. No judgement, no assumptions. Just the real story.</p>
+    <p><strong>We want to give the note back to Jaan — or to the person who wrote it.</strong> We want to understand what happened. No judgement, no assumptions. Just the real story.</p>
     <p style="margin-top: 0.5rem;">If you are Jaan, or if you recognise the note, the handwriting, the name, or anything at all — please reach out.</p>
   </div>
 
-  <!-- contact section: simple, direct -->
+  <!-- contact -->
   <div class="card" style="text-align: center;">
     <h2>📬 contact sam or ellie</h2>
     <p>We'd love to hear from you. Even a small clue helps.</p>
@@ -218,7 +209,6 @@
     <p style="font-size: 0.75rem; margin-top: 0.8rem;">sam.brooks2@uos.ac.uk · e.pearce5@uos.ac.uk</p>
   </div>
 
-  <!-- simple footer -->
   <footer>
     <p>finding jaan · sam & ellie · april 2026 · pudding mill lane</p>
     <p style="margin-top: 0.2rem;">no interpretations — just a lost note and a search for its story.</p>
